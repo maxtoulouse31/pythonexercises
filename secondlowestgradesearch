@@ -1,0 +1,22 @@
+from operator import itemgetter
+if __name__ == '__main__':
+    lst = []
+    for _ in range(int(input())):
+        result = []
+        name = input()
+        result.append(name)
+        score = float(input())
+        result.append(score)
+        lst.append(result)
+    performance = (sorted(lst, key = lambda x : x[1]))
+    mn = min(performance, key=itemgetter(1))[1]
+    filtered = [x for x in performance if x[1] != mn]
+    mn_fil = min(filtered,key=itemgetter(1))[1]
+    mn_fil = min(filtered,key=itemgetter(1))[1]
+    out = [x for x in filtered if x[1] == mn_fil]
+    secondlowest = (sorted(out, key = lambda x : x[0]))
+    if len(secondlowest) > 1:
+        print (secondlowest[0][0])
+        print (secondlowest[1][0])  
+    else:
+        print (secondlowest[0][0])
